@@ -23,6 +23,19 @@ function setRandomPosition(element, error = null) {
 
 function initEventWithError(element, eventName, error) {
     element.addEventListener(eventName, function() {
-        setRandomPosition(this, error);
+        try {
+            setRandomPosition(this, error);
+        }
+        catch(e) {
+            const alert = document.querySelector('.alert')
+            const message = document.querySelector('.alert__message')
+            alert.classList.remove('alert--hidden')
+            message.innerText = e.message
+
+            alert.addEventListener('click', (e) => {
+                if (e.target.tagName == 'SECTION') alert.classList.add('alert--hidden')
+            })
+        }
+        
     })
 }
