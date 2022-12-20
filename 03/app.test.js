@@ -4,11 +4,11 @@ it('For 1 and 1 should return 1', () => {
 })
 
 it('For s and x should return error', () => {
-    expect(randomNumber(s, x)).toThrow()
+    expect(() => randomNumber('s', 'x')).toThrow(Error)
 })
 
 it('For 2 and 1 should return error', () => {
-    expect(randomNumber(2, 1)).toThrow()
+    expect(() => randomNumber(2, 1)).toThrow(Error)
 })
 
 it('For 1 and 4 should be grater or equal 1', () => {
